@@ -543,7 +543,8 @@ process collect_snap_results {
     // Define the input files
     input:
       tuple val(base), file(bam_list)
-      file SAM_SPLIT 
+      file SAM_SPLIT
+      file BASH_SPLIT
 
     // Define the output files
     output:
@@ -574,7 +575,11 @@ sort -k 1 --buffer-size=200G ${base}.sam > ${base}.sorted.sam
 
 echo "splitting ${base} pseudosam"
 
-python3 ${SAM_SPLIT} ${base}.sorted.sam ${params.TIEBREAKING_CHUNKS} ${base}
+#python3 ${SAM_SPLIT} ${base}.sorted.sam ${params.TIEBREAKING_CHUNKS} ${base}
+
+# Trying bash splitting
+split -a 3 -d -l ${params.TIEBREAKING_CHUNKS} ${base}.sorted.sam ${base}_split_
+./${BASH_SPLIT} ${base}_split_
 
 #linenum=`cat ${base}.sam | wc -l`
 
