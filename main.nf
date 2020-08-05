@@ -176,6 +176,7 @@ TRIMMOMATIC_JAR = file(params.TRIMMOMATIC_JAR_PATH)
 TRIMMOMATIC_ADAPTER = file(params.TRIMMOMATIC_ADAPTER_PATH)
 GENERATE_SUMMARY_SCRIPT = file("modules/summarize_run.r")
 SAM_SPLIT = file("${workflow.projectDir}/bin/sam_split.py")
+BASH_SPLIT = file("${workflow.projectDir}/bin/split.sh")
 TAXDUMP_NODES = file(params.TAXDUMP_NODES)
 TAXDUMP_MERGED = file(params.TAXDUMP_MERGED)
 
@@ -412,7 +413,8 @@ workflow {
             snap_single.out.flatten().map{
                 it -> [it.name.split("__")[0], it]
             }.groupTuple(),
-            SAM_SPLIT
+            SAM_SPLIT,
+            BASH_SPLIT
         )
 
         CLOMP_summary(
