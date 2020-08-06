@@ -8,8 +8,8 @@ files=($basename*)
 total=${#files[@]}
 total=$((total-2))
 
-echo "total"
-echo $total
+echo "basename "$basename
+echo "total "$total
 
 fixSplit() {
         inum=$(printf %03d $i)
@@ -19,7 +19,7 @@ fixSplit() {
         echo "Last record in "$basename$inum" is "$last_record". Grepping in "$basename$j"."
         head -n 30000 $basename$j | grep $last_record >> $basename$inum
         echo "Removing "$last_record" from "$basename$j"."
-        ex +:g/$last_record/d -cwq $basename$j
+        /usr/bin/vim -e +:g/$last_record/d -cwq $basename$j
         echo "Done."
 }
 
