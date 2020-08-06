@@ -577,10 +577,12 @@ echo "splitting ${base} pseudosam"
 
 #python3 ${SAM_SPLIT} ${base}.sorted.sam ${params.TIEBREAKING_CHUNKS} ${base}
 
-# Trying bash splitting
-split -a 3 -d -l ${params.TIEBREAKING_CHUNKS} ${base}.sorted.sam ${base}_split_
-./${BASH_SPLIT} ${base}_split_
+linenum=`cat ${base}.sam | wc -l`
+splitnum=`\$(( \$linenum / ${params.TIEBREAKING_CHUNKS} ))`
 
+# Trying bash splitting
+split -a 3 -d -l \$linenum ${base}.sorted.sam ${base}_split_
+./${BASH_SPLIT} ${base}_split_
 #linenum=`cat ${base}.sam | wc -l`
 
 #echo "lines: " \$linenum
