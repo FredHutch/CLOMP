@@ -822,19 +822,13 @@ def tie_break(taxid_list):
 		try:
 			#Not every taxid has a valid NCBI lineage, so this statement has to be encased in a try statement.
 			lineage = ncbi.get_lineage(id)
-			print("pls")
-			print(lineage)
-			print(${params.FILTER_LIST})
 			# filters out lineages that contain taxids in the FILTER_LIST variable
 			# commonly, this is 'other sequences', 'artificial sequences' or 'environmental samples' 
 
 		except:
 			lineage = []
 					
-		if any(str(x) in ${params.FILTER_LIST} for x in lineage):
-			print("wtf")
-			print(lineage)
-			print(${params.FILTER_LIST})
+		if any(x in ${params.FILTER_LIST} for x in lineage):
 			lineage = []
     
 		if lineage:
