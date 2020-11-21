@@ -828,7 +828,7 @@ def tie_break(taxid_list):
 		except:
 			lineage = []
 					
-		if any(str(x) in ${params.FILTER_LIST} for x in lineage):
+		if any(x in ${params.FILTER_LIST} for x in lineage):
 			lineage = []
     
 		if lineage:
