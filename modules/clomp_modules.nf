@@ -963,7 +963,8 @@ def build_sams(input_list):
 			for s_file in glob.glob(base + '*' + '.sam'):
 				for line in open(s_file):
 					sam_line_list = sam_line.split('\t')
-					if sam_line_list[0] in list_of_reads_to_pull and 'complete_genome' in sam_line_list[2]:
+          # Hard coded for bad klebsiella reference
+					if sam_line_list[0] in list_of_reads_to_pull and 'complete_genome' in sam_line_list[2] and 'CP025541.1' not in sam_line_list[2]:
 						acc_num_list.append(sam_line_list[2].split('.')[0])
 			if len(acc_num_list) == 0:
 				print('No complete genome reference found, not assembling taxid: ' + str(taxid))

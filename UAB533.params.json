@@ -1,0 +1,20 @@
+{
+    "INPUT": "s3://covid19-input-data/tpallidum_wgs/for_2x300/first_batch/UAB533/",
+    "OUTDIR": "s3://covid19-input-data/tpallidum_wgs/for_2x300/first_batch/UAB533/output/",
+    "METADATA_FILE": "s3://covid19-input-data/tpallidum_wgs/for_2x300/first_batch/UAB533/metadata.csv",
+    "ADAPTERS": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/All_adapters.fa",
+    "REF_FASTAS": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/TPA_rRNA_refs.fasta",
+    "REF_FASTAS_TRIM": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/TPA_refseqs_trim.fasta",
+    "NC_021508": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.fasta",
+    "NC_021508_1": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.1.bt2",
+    "NC_021508_2": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.2.bt2",
+    "NC_021508_3": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.3.bt2",
+    "NC_021508_4": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.4.bt2",
+    "NC_021508_5": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.rev.1.bt2",
+    "NC_021508_6": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.rev.2.bt2",
+    "NC_021508_BWA1": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.fasta.amb",
+    "NC_021508_BWA2": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.fasta.ann",
+    "NC_021508_BWA3": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.fasta.bwt",
+    "NC_021508_BWA4": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.fasta.pac",
+    "NC_021508_BWA5": "s3://clomp-reference-data/tool_specific_data/Tpallidum_WGS/refs/NC_021508.fasta.sa"
+}
