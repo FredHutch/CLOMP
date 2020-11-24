@@ -609,7 +609,9 @@ for i in ${bam_list}; do /usr/bin/samtools view \$i >> ${base}.sam; done
 
 echo "sorting ${base} pseudosam by readname"
 
-sort -k 1 --buffer-size=200G ${base}.sam > ${base}.sorted.sam
+#sort -k 1 --buffer-size=200G ${base}.sam > ${base}.sorted.sam
+# hard coded for bad klebsiella reference
+sort -k 1 --buffer-size=200G ${base}.sam | grep -v "CP025541.1" > ${base}.sorted.sam
 
 echo "ls after sort" 
 ls -lah
@@ -963,9 +965,7 @@ def build_sams(input_list):
 			for s_file in glob.glob(base + '*' + '.sam'):
 				for line in open(s_file):
 					sam_line_list = sam_line.split('\t')
-          # Hard coded for bad klebsiella reference
-					print(sam_line_list[2])
-					if sam_line_list[0] in list_of_reads_to_pull and 'complete_genome' in sam_line_list[2] and 'CP025541.1' not in sam_line_list[2]:
+					if sam_line_list[0] in list_of_reads_to_pull and 'complete_genome' in sam_line_list[2]:
 						print("appended")
 						acc_num_list.append(sam_line_list[2].split('.')[0])
 			if len(acc_num_list) == 0:
